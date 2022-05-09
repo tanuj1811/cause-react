@@ -1,0 +1,118 @@
+/** @format */
+@import "../../shared/SassVariables/variable.scss";
+
+.container {
+  height: 100vh;
+  max-width: 70rem;
+
+  .userbox {
+    // margin: 0rem 1rem;
+    margin-right: 1rem;
+    margin-bottom: 1rem;
+    color: rgb(229, 98, 22);
+    border: 1px solid rgba(230, 197, 168, 0.637);
+    background-color: rgba(230, 197, 168, 0.637);
+  }
+
+  .tagsandquery {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    justify-items: center;
+
+    .tags {
+      padding: 1rem;
+      margin: auto;
+
+      span {
+        margin: 2px;
+        font-size: 12px;
+        display: inline-flex;
+        align-content: center;
+        justify-content: center;
+        color: rgb(229, 98, 22);
+        border: 1px solid rgba(230, 197, 168, 0.637);
+        background-color: rgba(230, 197, 168, 0.637);
+        border-radius: 8px;
+        line-height: 1.8;
+        white-space: nowrap;
+        padding: 3px;
+        margin: 3px;
+      }
+    }
+  }
+
+  .main_container {
+    h3 {
+      color: $dark;
+    }
+    .description {
+      max-width: 68rem;
+      padding: 1rem;
+      @include breakPoint(md) {
+        padding: 5rem;
+      }
+    }
+  }
+
+  .ansAndComments {
+    display: flex;
+    flex-direction: column;
+    margin: 1rem;
+    height: fit-content;
+    overflow: hidden;
+    flex-wrap: wrap;
+    @include breakPoint(md) {
+      flex-direction: row;
+      margin: 2rem;
+    }
+    .answers {
+      max-width: 850px;
+      flex: 2;
+      overflow: hidden;
+      justify-content: center;
+
+      .answer {
+        background-color: #c4eccb29;
+        margin: 1rem 0rem 1rem 1rem;
+      }
+    }
+    .comments {
+      flex: 1;
+      .add_comment {
+        padding: 15px 0 0;
+        margin: 1rem;
+
+        &_input {
+          width: 100%;
+          border: 0;
+          border-bottom: 2px solid gray;
+          outline: 0;
+          font-size: 11px;
+          color: $dark;
+          background: transparent;
+          transition: border-color 0.2s;
+
+          &::placeholder {
+            color: gray;
+          }
+          &:placeholder-shown ~ .add_comment_label {
+            font-size: 10px;
+            cursor: text;
+            top: 20px;
+          }
+          &:focus {
+            padding-bottom: 6px;
+            border-width: 3px;
+            border-image: linear-gradient(to right, #4a504f, #9fa5a1);
+            border-image-slice: 1;
+          }
+        }
+      }
+      .comment {
+        max-width: 200px;
+      }
+    }
+  }
+}

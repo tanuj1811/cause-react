@@ -1,0 +1,30 @@
+/** @format */
+
+@import "./shared/SassVariables/variable.scss";
+
+* {
+  box-sizing: border-box;
+  margin: 0 auto;
+}
+
+body {
+  font-family: $Poppins;
+  // background-color: aqua;
+  background-image: linear-gradient(
+    to bottom,
+    rgb(255, 255, 255),
+    rgb(92, 92, 88)
+  );
+}
+
+// #root {
+//   height: 100%;
+// }
+
+main {
+  padding-top: 60px;
+  // background-color: $themeBlack;
+}
+.ck-editor__editable {
+  min-height: 200px !important;
+}

@@ -1,0 +1,51 @@
+/** @format */
+
+.stackOverFlow {
+  background: var(--black-700);
+  background: linear-gradient(
+    180deg,
+    rgba(0, 0, 0, 0.856) 0%,
+    rgba(0, 0, 0, 0.397) 130%
+  );
+}
+
+.jumbotron {
+  width: 30%;
+  /* height: 500px; */
+  justify-content: center;
+  background-color: grey;
+  padding: 10px 10px;
+  margin: auto;
+  margin-top: 3rem;
+}
+.jumbotron h1,
+.jumbotron p {
+  overflow: auto;
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+}
+
+.jumbotron__content {
+  padding: 10px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: row;
+  justify-content: space-around;
+}
+
+@media only screen and (max-width: 680px) {
+  .jumbotron {
+    width: 95%;
+    height: auto;
+    margin: 10px;
+  }
+  .jumbotron__content {
+    /* flex-direction: column; */
+    width: 90%;
+    align-items: center;
+    /* margin-bottom: 10px;
+        margin-right: 0.5rem; */
+  }
+}

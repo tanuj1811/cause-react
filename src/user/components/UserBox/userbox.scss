@@ -1,0 +1,45 @@
+/** @format */
+
+.userBoxComponent {
+  max-height: 80px;
+  max-width: 200px;
+  border: 1px solid black;
+  overflow: hidden;
+  padding: 2px;
+  .user-action-time {
+    font-size: 10px;
+    font-weight: lighter;
+  }
+  .user-details {
+    display: flex;
+    flex-direction: row;
+    img {
+      height: 50px;
+      width: 50px;
+    }
+    a {
+      display: flex;
+      flex-direction: column;
+      padding: 2px;
+      padding-left: 10px;
+      text-decoration: none;
+      color: black;
+
+      &:hover {
+        color: blue;
+      }
+
+      p {
+        font-size: 12px;
+        margin-top: 0;
+      }
+
+      .details {
+        p {
+          font-size: 11px;
+          margin-top: 0;
+        }
+      }
+    }
+  }
+}

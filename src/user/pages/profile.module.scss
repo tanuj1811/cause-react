@@ -1,0 +1,136 @@
+/** @format */
+
+@import "../../shared/SassVariables/variable.scss";
+
+.profile__main {
+  display: block;
+  // flex-wrap: wrap;
+  // flex-direction: column;
+  width: 90%;
+  height: fit-content;
+  // justify-content: space-around;
+  margin-top: 20px;
+
+  @include breakPoint(md) {
+    display: flex;
+  }
+
+  &__lists {
+    width: 80%;
+    &__list {
+      padding: 10px;
+      margin: 1rem;
+      background-color: rgb(243, 243, 243);
+      border-radius: 15px;
+    }
+  }
+
+  .vertical__line {
+    border-left: 2px solid black;
+    height: 200px;
+    margin: 0 25px;
+    display: none;
+
+    @include breakPoint(md) {
+      display: block;
+    }
+  }
+
+  &__info {
+    justify-content: space-between;
+    display: flex;
+  }
+}
+
+.profile__stats {
+  display: flex;
+  flex-direction: column;
+  margin: 1rem auto;
+  width: 90%;
+
+  @include breakPoint(md) {
+    flex-direction: row;
+  }
+
+  &__row {
+    display: flex;
+    flex-direction: column;
+  }
+
+  &__tags {
+    width: 80%;
+    margin-bottom: 2rem;
+
+    @include breakPoint(md) {
+      width: 500px;
+    }
+
+    &__skills span {
+      margin: 2px;
+      font-size: 12px;
+      display: inline-flex;
+      align-content: center;
+      justify-content: center;
+      border: 1px solid transparent;
+      border-radius: 3px;
+      line-height: 1.8;
+      white-space: nowrap;
+      background-color: aquamarine;
+      color: black;
+      padding: 3px;
+      margin: 3px;
+    }
+  }
+
+  &__stats {
+    width: 300px;
+    height: fit-content;
+    margin: 1rem auto;
+
+    &__info {
+      display: flex;
+      flex-wrap: wrap;
+
+      justify-content: space-around;
+    }
+  }
+}
+
+.profile__name {
+  // display: flex;
+  // flex-wrap: wrap;
+  overflow: auto;
+  height: fit-content;
+  margin: 0.5rem 1rem;
+  width: inherit;
+
+  //     .profile__work{
+  //         display: flex;
+  //         flex-wrap: wrap;
+  //         padding: 15px;
+  //     }
+}
+.profile__dp {
+  overflow: hidden;
+  border-radius: 50%;
+  border: 2px solid black;
+  box-shadow: -1px -1px 20px 0px black;
+  width: 170px;
+  height: 170px;
+  margin: auto;
+
+  @include breakPoint(md) {
+    margin: 1rem;
+  }
+}
+.profile__work {
+  a {
+    margin: 0 1rem;
+    text-decoration: none;
+    color: black;
+    &:hover {
+      text-decoration: dashed;
+      color: salmon;
+    }
+  }
+}

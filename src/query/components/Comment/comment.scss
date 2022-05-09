@@ -1,0 +1,22 @@
+/** @format */
+
+.commentComponent {
+  .content {
+    display: flex;
+    padding: 10px 10px 0px 10px;
+    p {
+      font-size: 10px;
+      color: gray;
+      padding: 5px;
+    }
+  }
+  .trash-icon {
+    cursor: pointer;
+    padding: 3px;
+    margin-right: 0rem;
+
+    svg {
+      padding: 2px;
+    }
+  }
+}

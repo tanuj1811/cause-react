@@ -1,0 +1,39 @@
+/** @format */
+@import "../../../shared/SassVariables/variable.scss";
+
+.adminFeatureComponent {
+  display: flex;
+  justify-content: space-evenly;
+  text-align: center;
+  flex-direction: row;
+  width: 90%;
+
+  @include breakPoint(md) {
+    width: 25%;
+    margin-left: 1rem;
+  }
+
+  .feature {
+    padding: 1rem;
+    font-size: 12px;
+    button {
+      cursor: pointer;
+      color: gray;
+      text-decoration: none;
+      border: none;
+      background: transparent;
+      &:hover {
+        color: blue;
+        text-decoration: underline;
+      }
+    }
+    #custom-tooltip {
+      display: none;
+      margin-left: 40px;
+      padding: 5px 12px;
+      background-color: #000000df;
+      border-radius: 4px;
+      color: #fff;
+    }
+  }
+}

@@ -1,0 +1,37 @@
+/** @format */
+
+.tags {
+  padding: 1rem;
+  margin: auto;
+
+  div {
+    margin: 2px;
+    font-size: 12px;
+    display: inline-flex;
+    align-content: center;
+    justify-content: center;
+    color: rgb(229, 98, 22);
+    border: 1px solid rgba(230, 197, 168, 0.637);
+    background-color: rgba(230, 197, 168, 0.637);
+    border-radius: 8px;
+    line-height: 1.8;
+    white-space: nowrap;
+    padding: 3px;
+    margin: 2px;
+    cursor: pointer;
+  }
+}
+
+.tag_input {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: #f8f8f8;
+  outline: none;
+  border: none;
+  border-bottom: 0.5px solid gray;
+  font-size: large;
+
+  &:focus {
+    background-color: #c5a3a35c;
+  }
+}

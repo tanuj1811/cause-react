@@ -1,0 +1,44 @@
+/** @format */
+@import "../../../shared/SassVariables/variable.scss";
+
+.answerComponent {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  padding: 1rem;
+
+  @include breakPoint(md) {
+    flex-direction: row;
+  }
+
+  span {
+    // position: absolute;
+  }
+  button {
+    background-color: transparent;
+    color: black;
+    border: none;
+    height: 100%;
+    width: 2rem;
+    margin: 0.5rem 1rem 1rem 1rem;
+  }
+
+  .content {
+    height: 100%;
+    width: 100%;
+    margin: 0 10px;
+  }
+}
+.userbox {
+  // margin: 0rem 1rem;
+  margin-right: 1rem;
+  margin-bottom: 1rem;
+  margin-left: 0rem;
+  color: rgb(229, 98, 22);
+  border: 1px solid rgba(230, 197, 168, 0.637);
+  background-color: rgba(230, 197, 168, 0.637);
+
+  @include breakPoint(md) {
+    margin-left: auto;
+  }
+}

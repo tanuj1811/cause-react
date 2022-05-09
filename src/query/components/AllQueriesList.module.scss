@@ -1,0 +1,78 @@
+@import '../../shared/SassVariables/variable.scss';
+
+.heading_container {
+    width: 100%;
+    
+    margin: 25px 25px;
+    
+
+    img {
+        width: 400px;
+        max-height: 90px;
+        margin: 0 15px;
+        display: none;
+        z-index: -999999;
+
+        @include breakPoint(md){
+            // display: none;
+            display: block;
+        }
+    }
+    
+}
+.link {
+    text-decoration: none;
+}
+.queriesContainer {
+   width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+    
+    margin: auto;
+    justify-content: center;
+
+    @include breakPoint(md) {
+        width: 80%;
+        padding: 15px;
+    }
+}
+
+.queryBox {
+    width: 100%;
+    // display: flex;
+    margin: 10px 15px;
+   
+    @include breakPoint(md){
+        max-width: 40%;
+        width: fit-content;
+        height: fit-content;
+        min-height: 150px;
+    }
+    
+    h2{
+        color: brown;
+        font-weight: bold;
+        font-size: medium;
+        @include breakPoint(md){
+            font-size: revert;
+        }
+
+        &:hover{
+            color: rgb(19, 117, 134);
+            text-decoration: underline;
+        }
+    }
+
+    h5{
+        overflow: hidden;
+        max-height: 30px;
+    }
+
+    p {
+        top: 8px;
+        right: 16px;
+        float: right;
+        margin: 15px auto;
+    }
+}
+
