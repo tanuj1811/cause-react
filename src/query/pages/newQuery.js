@@ -61,7 +61,7 @@ const NewQuery = (props) => {
         )
     } else {
       axios
-        .post(`https://ca-use.herokuapp.com/api/queries/addQuery`, data)
+        .post(`https://ca-use.herokuapp.com/api/queries/newQuery`, data)
         .then(
           (response) => {
             console.log('new query added successfully to your database')
