@@ -5,7 +5,6 @@ import {
   signInWithEmailAndPassword,
 } from 'firebase/auth'
 import axios from 'axios'
-import {onAuthStateChanged} from 'firebase/auth'
 
 const AuthContext = React.createContext()
 
@@ -68,11 +67,6 @@ export function AuthProvider({ children }) {
         console.log(error)
       })
   }
-  useEffect(() => {
-    onAuthStateChanged(auth, (user) => {
-      setCurrentUser(user)
-     })
-  }, [])
 
   async function login(email, password) {
     return await signInWithEmailAndPassword(auth, email, password).then(
@@ -107,8 +101,19 @@ export function AuthProvider({ children }) {
     return currentUser.updatePassword(password)
   }
 
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      if (user) {
+        axios.get(`https://ca-use.herokuapp.com/api/users/${user.uid}`).then(
+          (response) => setCurrentUser(response.data),
+          (error) => console.log(error),
+        )
+      }
+      setLoading(false)
+    })
 
-  useEffect(() => console.log(currentUser))
+    return unsubscribe
+  }, [])
 
   const value = {
     currentUser,

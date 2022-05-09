@@ -16,7 +16,7 @@ const Signup = (props) => {
   const navigate = useNavigate()
   const { switchToSignin } = useContext(AccountContext)
   const [error, setError] = useState('')
-  const [loading, setLoading] = useState('')
+  const [loading, setLoading] = useState(false)
   const { signup } = useAuth()
 
   const [formState, inputHandler] = useForm(
@@ -89,7 +89,7 @@ const Signup = (props) => {
       <span style={{ display: 'flex', height: '10px' }}></span>
       <button
         className={styles.submitButton}
-        disabled={!formState.isValid}
+        disabled={loading && !formState.isValid}
         type="submit"
       >
         Signup
