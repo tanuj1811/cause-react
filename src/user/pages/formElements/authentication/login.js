@@ -67,9 +67,9 @@ const Login = () => {
         />
       </div>
       <span style={{ display: 'flex', height: '10px' }}></span>
-      <a className={styles.mutedLink} href="">
-        Forget your password ?
-      </a>
+//       <a className={styles.mutedLink} href="">
+//         Forget your password ?
+//       </a>
       <span style={{ display: 'flex', height: '1.6em' }}></span>
       <button
         className={styles.submitButton}
