@@ -43,7 +43,7 @@ const Header = () => {
     <header className="header">
       <div className="content">
         <div>
-          <h2 className="logo">Query Point</h2>
+          <h2 className="logo">cause.com</h2>
         </div>
         <div>
           {!currentUser && (

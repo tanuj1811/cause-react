@@ -1,6 +1,8 @@
 import React, { useState, useEffect } from 'react'
 
+import { AiOutlineClose } from 'react-icons/ai'
 import styles from './home.module.scss'
+import { useNavigate } from 'react-router-dom'
 // import stylesVariable from '../../shared/SassVariables/variable.scss'
 import Jumbotron from '../../shared/components/UIElements/Jumbotron'
 import Card from '../../shared/components/UIElements/Card'
@@ -8,6 +10,8 @@ import axios from 'axios'
 
 const Home = () => {
   const [totalQues, setTotalQues] = useState(0)
+  const [tags,setTags] = useState(['java','python','english','react','node','spring boot'])
+  const navigate = useNavigate()
 
   useEffect(() => {
     axios.get('https://ca-use.herokuapp.com/api/queries').then(
@@ -63,10 +67,12 @@ const Home = () => {
       </Jumbotron>
       <div className={styles.home__card__div}>
         <Card className={styles.home__card}>
-          <h1>A Thanks to our Contributer's</h1>
-          <ul>
-            <li>Tanuj Sharma</li>
-          </ul>
+          <h1>A Thanks to our contributor's</h1>
+          <div className={styles.tags}>
+          <div onClick={() => {navigate('/users/mNg2A63RS3bK8c9FlhQYy6VbQD23')}}>
+                {'tanuj sharma'}{' '}
+              </div>
+        </div>
         </Card>
         <Jumbotron
           height="fit-content"
@@ -80,12 +86,14 @@ const Home = () => {
       <div>
         <h1 style={{ color: 'white', margin: '1rem' }}>Trending Tags</h1>
         <div className={styles.home__trend__card}>
-          <ul>
-            <li>#{'python'}</li>
-            <li>#{'java'}</li>
-            <li>#{'ReactJs'}</li>
-            <li>#{'Spring-boot'}</li>
-          </ul>
+          <div className={styles.tags}>
+          {tags &&
+            tags.map((t) => (
+              <div onClick={() => {navigate('/queries')}}>
+                {t}{' '}
+              </div>
+            ))}
+        </div>
         </div>
       </div>
     </React.Fragment>

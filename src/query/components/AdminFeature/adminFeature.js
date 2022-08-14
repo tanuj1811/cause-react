@@ -10,7 +10,7 @@ const AdminFeature = ({
   ...restProps
 }) => {
   const navigate = useNavigate()
-  const URL = `http://localhost:3000/${queryId}/query`
+  const URL = window.location.href
 
   const popUpMessage = (e) => {
     document.getElementById('custom-tooltip').style.display = 'inline'
@@ -45,6 +45,7 @@ const AdminFeature = ({
         break
 
       default:
+        navigate('/')
         break
     }
   }

@@ -36,7 +36,7 @@ export function AuthProvider({ children }) {
             'opening account in awesome sites',
           ],
           otherContractLinks: {
-            portfolio: 'https://cause.com',
+            portfolio: 'https://cause-one.vercel.app/users'+user.uid,
             resume: '',
             linkedin: '',
             github: '',

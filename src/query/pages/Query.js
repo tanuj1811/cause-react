@@ -13,12 +13,19 @@ import {
   VALIDATOR_MAXLENGTH,
 } from '../../shared/util/validator'
 import AdminFeature from '../components/AdminFeature/adminFeature'
+import { useAuth } from '../../shared/context/authContext'
 
 const Query = () => {
   const currentQueryId = useParams().queryId
+  const {currentUser} = useAuth();
+  // console.log(currentUser)
   const [QUERY, setQUERY] = useState({})
   const [comment, setComment] = useState('')
   const [answer, setAnswer] = useState('')
+  const [ANSWERS,setANSWERS] = useState([])
+  const [COMMENTS,setCOMMENTS] = useState([])
+  const [adminFeature,setAdminFeature] = useState({});
+
 
   useEffect(() => {
     axios
@@ -26,26 +33,16 @@ const Query = () => {
       .then(
         (response) => {
           setQUERY(response.data)
+          setANSWERS(response.data.answers)
+          setCOMMENTS(response.data.comments)
         },
         (error) => {
           console.log(error)
         },
       )
-    console.log(QUERY)
-  }, [])
 
-  const loadQuery = async () => {
-    axios
-      .get(`https://ca-use.herokuapp.com/api/queries/${currentQueryId}`)
-      .then(
-        (response) => {
-          setQUERY(response.data)
-        },
-        (error) => {
-          console.log(error)
-        },
-      )
-  }
+  })
+
 
   const [formState, inputHandler, setFormData] = useForm(
     {
@@ -74,11 +71,11 @@ const Query = () => {
     console.log(answer)
     const data = {
       answer: formState.inputs.postAnswer.value,
-      userId: '625d8a7635f7113fc87ed5ff',
+      userId: currentUser._id,
       date: date,
       queryId: currentQueryId,
       approved: false,
-      score: 0,
+      score: 1,
     }
     axios
       .post(
@@ -87,7 +84,8 @@ const Query = () => {
       )
       .then(
         (response) => {
-          loadQuery()
+          // loadQuery()
+          setANSWERS([...ANSWERS, data])
           console.log('Answer added Successfully :)')
           setFormData(
             {
@@ -95,7 +93,7 @@ const Query = () => {
             },
             false,
           )
-          setAnswer('')
+          setAnswer('post answer')
         },
         (error) => {
           console.log(error)
@@ -117,7 +115,8 @@ const Query = () => {
         )
         .then(
           (response) => {
-            loadQuery()
+            // loadQuery()
+            setCOMMENTS([data, ...COMMENTS])
             console.log('Comment added Successfully :)')
           },
           (error) => {
@@ -136,7 +135,8 @@ const Query = () => {
       .then(
         (response) => {
           console.log('answer deleted successfully ' + answerId)
-          loadQuery()
+          // loadQuery()
+          setANSWERS((ANSWERS) => ANSWERS.filter((ans)=> ans._id !== answerId))
         },
         (error) => {
           console.log(error)
@@ -151,13 +151,24 @@ const Query = () => {
       .then(
         (response) => {
           console.log('comment deleted successfully ' + commentId)
-          loadQuery()
+          // loadQuery()
+          setANSWERS((COMMENTS) => COMMENTS.filter((cmt)=> cmt._id !== commentId))
         },
         (error) => {
           console.log(error)
         },
       )
   }
+
+  useEffect(()=> {
+    if(currentUser && currentUser._id === QUERY.userId) {
+      setAdminFeature({
+        edit:'edit-query',
+        delete: 'delete-query'
+      })
+    }
+  },[currentUser, QUERY])
+  
 
   return (
     <>
@@ -179,9 +190,8 @@ const Query = () => {
         <AdminFeature
           className="adminFeature"
           queryId={QUERY._id}
-          share="share"
-          edit="edit-query"
-          delete="delete-query"
+          share='share'
+          {...adminFeature}
           deleteHandler={deleteQueryHandler}
           post_answer
         />

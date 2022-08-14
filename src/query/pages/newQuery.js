@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
 import { useForm } from '../../shared/hooks/form-hook'
+import { useAuth } from '../../shared/context/authContext'
 
 import styles from './newQuery.module.scss'
 import Input from '../../shared/components/UIElements/Input'
@@ -14,6 +15,7 @@ import axios from 'axios'
 import { AiOutlineClose } from 'react-icons/ai'
 
 const NewQuery = (props) => {
+  const {currentUser} = useAuth();
   const navigate = useNavigate()
   const query = props.query || {}
   const [tag, setTag] = useState('')
@@ -36,11 +38,11 @@ const NewQuery = (props) => {
   const formHandler = (e) => {
     e.preventDefault()
     let data = {
-      userId: '625d889fa6770040a32b24c7',
+      userId: currentUser._id,
       title: formState.inputs.title.value,
       description: formState.inputs.description.value,
       groups: query.groups || [],
-      tags: query.tags || [],
+      tags: tags || query.tags,
       answers: query.answers || [],
       comments: query.comments || [],
       likes: query.likes || 0,
@@ -65,7 +67,7 @@ const NewQuery = (props) => {
         .then(
           (response) => {
             console.log('new query added successfully to your database')
-            navigate('/queries#unsolvedqueries')
+            navigate('/queries')
           },
           (error) => console.log(error),
         )

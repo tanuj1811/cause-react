@@ -10,9 +10,9 @@ import { Link, useParams } from 'react-router-dom'
 import { Answers, Queries } from '../../query/components/Fetching/Queries'
 import { useAuth } from '../../shared/context/authContext'
 import axios from 'axios'
-import { async } from '@firebase/util'
+
 const Profile = () => {
-  const [userId, setUserId] = useState(useParams().userId)
+  const [userId] = useState(useParams().userId)
   const [USER, setUser] = useState({})
   const [recentQueries, setRecentQueries] = useState([])
 
@@ -31,7 +31,6 @@ const Profile = () => {
       for (var i = 0; i < 5 && i < questions.length; i++) {
         setRecentQueries([...recentQueries, questions[i]])
       }
-      console.log(recentQueries)
     }
   }, [USER])
 
