@@ -1,0 +1,91 @@
+/** @format */
+
+@import "../../../../shared/SassVariables/variable.scss";
+.input {
+  width: auto;
+}
+.tags {
+  padding: 1rem;
+  margin: auto;
+
+  div {
+    margin: 2px;
+    font-size: 12px;
+    display: inline-flex;
+    align-content: center;
+    justify-content: center;
+    color: rgb(229, 98, 22);
+    border: 1px solid rgba(230, 197, 168, 0.637);
+    background-color: rgba(230, 197, 168, 0.637);
+    border-radius: 8px;
+    line-height: 1.8;
+    white-space: nowrap;
+    padding: 3px;
+    margin: 2px;
+    cursor: pointer;
+  }
+}
+
+.tag_input {
+  width: 100%;
+  margin-bottom: 1rem;
+  background-color: #f8f8f8;
+  outline: none;
+  border: none;
+  border-bottom: 0.5px solid gray;
+  font-size: large;
+  font-family: cursive;
+
+  &:focus {
+    background-color: #c5a3a35c;
+  }
+}
+
+.form__container {
+  display: flex;
+  flex-wrap: wrap;
+  width: 80%;
+  height: fit-content;
+  background: #ffff;
+  padding: 10px;
+  margin: 0 auto;
+  margin-bottom: 30px;
+  overflow: visible;
+}
+.heading_container {
+  width: 500px;
+  height: 50px;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  margin: 10px auto;
+
+  img {
+    width: 700px;
+    max-height: 90px;
+    filter: brightness(90%);
+    margin: 0 15px;
+    display: none;
+
+    @include breakPoint(md) {
+      // display: none;
+      display: block;
+    }
+  }
+}
+
+.placeForm {
+  list-style: none;
+  margin: 15px 0;
+  padding: 1rem;
+  width: 90%;
+  max-width: 60rem;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.26);
+  border-radius: 6px;
+  background: white;
+}
+
+.rich_text_area {
+  width: 100px;
+  height: 200px;
+}

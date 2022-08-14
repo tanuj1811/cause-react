@@ -2,7 +2,6 @@ import React from 'react'
 
 import './userbox.scss'
 import User from '../Fetching/user'
-import { Answers } from '../../../query/components/Fetching/Queries'
 import { Link } from 'react-router-dom'
 import { Card } from '../../../shared/components/UIElements'
 

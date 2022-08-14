@@ -1,4 +1,4 @@
-import React, { useContext, useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react'
 
 import './header.scss'
 
@@ -9,7 +9,6 @@ import { AiOutlineClose } from 'react-icons/ai'
 import { useAuth } from '../../context/authContext'
 
 const Header = () => {
-  const auth = { isLoggedIn: false }
   const { currentUser, logout } = useAuth()
 
   const [menuBtn, setMenuBtn] = useState(false)

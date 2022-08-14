@@ -4,7 +4,7 @@ import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   sendPasswordResetEmail,
-  onAuthStateChanged
+  onAuthStateChanged,
 } from 'firebase/auth'
 import axios from 'axios'
 
@@ -19,8 +19,8 @@ export function AuthProvider({ children }) {
   const [loading, setLoading] = useState(true)
 
   async function signup(email, password, username) {
-    return await createUserWithEmailAndPassword(auth, email, password)
-      .then((userCredential) => {
+    return await createUserWithEmailAndPassword(auth, email, password).then(
+      (userCredential) => {
         const user = userCredential.user
         console.log(user.uid)
         let data = {
@@ -38,7 +38,7 @@ export function AuthProvider({ children }) {
             'opening account in awesome sites',
           ],
           otherContractLinks: {
-            portfolio: 'https://cause-one.vercel.app/users'+user.uid,
+            portfolio: 'https://cause-one.vercel.app/users' + user.uid,
             resume: '',
             linkedin: '',
             github: '',
@@ -58,22 +58,23 @@ export function AuthProvider({ children }) {
           },
           questions: [],
         }
-        axios.post('https://ca-use.herokuapp.com/api/users/addUser', data).then(
-          (response) => {
+        axios
+          .post('https://ca-use.herokuapp.com/api/users/addUser', data)
+          .then((response) => {
             console.log('user added at both end')
             setCurrentUser(response.data)
-          }
-        )
-      })
+          })
+      },
+    )
   }
 
   async function login(email, password) {
     // return await signInWithEmailAndPassword(auth, email, password).then((response)=> console.log(response.user.uid))
     return await signInWithEmailAndPassword(auth, email, password).then(
       (userCred) => {
-        axios.get(`https://ca-use.herokuapp.com/api/users/${userCred.user.uid}`).then(
-            (response) => setCurrentUser(response.data),
-          )
+        axios
+          .get(`https://ca-use.herokuapp.com/api/users/${userCred.user.uid}`)
+          .then((response) => setCurrentUser(response.data))
       },
     )
   }

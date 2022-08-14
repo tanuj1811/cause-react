@@ -3,27 +3,21 @@ import React, { useState, useEffect } from 'react'
 import styles from './profile.module.scss'
 import Card from '../../shared/components/UIElements/Card'
 import EmptySpace from '../../shared/components/UIElements/EmptySpace'
-import AllQueriesList from '../../query/components/AllQueriesList'
-import { Error } from '../../shared/components/UIElements'
-import { Users } from '../components/Fetching/user'
 import { Link, useParams } from 'react-router-dom'
-import { Answers, Queries } from '../../query/components/Fetching/Queries'
-import { useAuth } from '../../shared/context/authContext'
 import axios from 'axios'
-
 const Profile = () => {
-  const [userId] = useState(useParams().userId)
+  const userId = useParams().userId
   const [USER, setUser] = useState({})
   const [recentQueries, setRecentQueries] = useState([])
 
   useEffect(() => {
     // setUserId(useParams().userId)
-    if (!userId) return <Error message={'not found'} />
+    if (!userId) return <p>no user id found</p>
     axios.get(`https://ca-use.herokuapp.com/api/users/${userId}`).then(
       (response) => setUser(response.data),
       (error) => console.log(error),
     )
-  })
+  },[userId])
 
   useEffect(() => {
     if (USER.questions) {
@@ -31,9 +25,11 @@ const Profile = () => {
       for (var i = 0; i < 5 && i < questions.length; i++) {
         setRecentQueries([...recentQueries, questions[i]])
       }
+      console.log(recentQueries)
     }
-  }, [USER])
+  }, [])
 
+  console.log(USER)
   return (
     <div>
       <Card className={styles.profile__main}>
@@ -41,7 +37,7 @@ const Profile = () => {
         <div className={styles.profile__dp}>
           <img
             src={USER.profilePic}
-            alt="Admin"
+            alt="dp"
             className="rounded-circle"
             width="150"
           />
@@ -72,9 +68,9 @@ const Profile = () => {
           <hr />
           <div className={styles.profile__work}>
             <h3>Links:</h3>
-            {USER.otherContactLink &&
-              Object.entries(USER.otherContactLinks).map((user) => (
-                <Link to={user[1]}>{user[0]}</Link>
+            {USER.otherContractLinks &&
+              Object.entries(USER.otherContractLinks).map((user) => (
+                <a href={user[1]} target="_blank">{user[0]}</a>
               ))}
           </div>
         </div>

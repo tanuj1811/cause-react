@@ -123,11 +123,22 @@
     margin: 1rem;
   }
 }
+
 .profile__work {
   a {
-    margin: 0 1rem;
-    text-decoration: none;
+    margin: 2px;
+    font-size: 12px;
+    display: inline-flex;
+    align-content: center;
+    justify-content: center;
+    border: 1px solid transparent;
+    border-radius: 3px;
+    line-height: 1.8;
+    white-space: nowrap;
+    background-color: aquamarine;
     color: black;
+    padding: 3px;
+    margin: 3px;
     &:hover {
       text-decoration: dashed;
       color: salmon;

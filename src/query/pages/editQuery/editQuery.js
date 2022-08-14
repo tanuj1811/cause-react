@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 import { useParams } from 'react-router-dom'
-import { Queries } from '../../components/Fetching/Queries'
 import NewQuery from '../newQuery'
 import axios from 'axios'
 

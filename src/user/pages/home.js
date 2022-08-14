@@ -1,6 +1,5 @@
 import React, { useState, useEffect } from 'react'
 
-import { AiOutlineClose } from 'react-icons/ai'
 import styles from './home.module.scss'
 import { useNavigate } from 'react-router-dom'
 // import stylesVariable from '../../shared/SassVariables/variable.scss'
@@ -10,7 +9,7 @@ import axios from 'axios'
 
 const Home = () => {
   const [totalQues, setTotalQues] = useState(0)
-  const [tags,setTags] = useState(['java','python','english','react','node','spring boot'])
+  const [tags] = useState(['java','python','english','react','node','spring boot'])
   const navigate = useNavigate()
 
   useEffect(() => {
