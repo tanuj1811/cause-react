@@ -1,11 +1,11 @@
 /** @format */
 
 .error {
-  height: 50px;
-  width: 95%;
-  background-color: rgb(238, 156, 156);
+  height: fit-content;
+  width: 90%;
+  background-color: rgba(255, 0, 0, 0.378);
   text-align: center;
-  margin: 0.3rem;
+  
 }
 
 .boxContainer {
@@ -20,11 +20,11 @@
   width: 100%;
   display: flex;
   flex-direction: column;
-  box-shadow: 0px 0px 2.5px rgba(15, 15, 15, 0.19);
 
   .formContainer__input {
     width: 100%;
     height: 42px;
+    margin-top: 1rem;
     outline: none;
     border: 1px solid rgba(200, 200, 200, 0.3);
     padding: 0px 10px;

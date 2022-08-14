@@ -76,7 +76,7 @@ const Header = () => {
                   <i className="fa fa-caret-down"></i>
                 </button>
                 <div className="dropdown-content">
-                  <a href="https://github.com/tanujdadheech">Github</a>
+                  <a href="https://github.com/tanuj1811">Github</a>
                   <a href="https://discord.gg/V9MREGkQTV">Discord</a>
                   <a href="https://linkedIn.com/tanujsharma01">LinkedIn</a>
                   <a href="https://youtube.com">Youtube</a>
@@ -91,8 +91,8 @@ const Header = () => {
                 </button>
                 <div className="dropdown-content">
                   <Link to={`/users/${currentUser._id}`}>{`{tanuj}`}</Link>
-                  <Link to="#">Edit Profile</Link>
-                  <Link to="#">Password Setting</Link>
+                  <Link to="/users/edit">Edit Profile</Link>
+                  <Link to="/forget-password">Password Setting</Link>
                   <Link to="/" onClick={() => logout()}>
                     Logout
                   </Link>

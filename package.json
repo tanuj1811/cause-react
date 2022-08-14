@@ -4,7 +4,6 @@
   "version": "0.1.0",
   "private": true,
   "dependencies": {
-    "ckeditor5-built-custom": "file:./ckeditor5-built-custom",
     "@ckeditor/ckeditor5-build-classic": "^33.0.0",
     "@ckeditor/ckeditor5-react": "^4.0.1",
     "@fortawesome/fontawesome-free-regular": "^5.0.13",
@@ -17,6 +16,7 @@
     "@testing-library/user-event": "^12.8.3",
     "axios": "^0.26.1",
     "ckeditor5": "^33.0.0",
+    "ckeditor5-built-custom": "file:./ckeditor5-built-custom",
     "firebase": "^9.6.11",
     "framer-motion": "^4.1.17",
     "node-sass": "^6.0.1",

@@ -13,6 +13,7 @@ import Query from './query/pages/Query'
 import Profile from './user/pages/Profile'
 import EditQuery from './query/pages/editQuery/editQuery'
 import EditProfile from './user/pages/formElements/EditProfile/editProfile'
+import ForgetPassword from './user/pages/formElements/authentication/forgetPassword/forgetpassword'
 import MainFooter from './shared/components/Footer/MainFooter'
 
 const App = () => {
@@ -32,9 +33,10 @@ const App = () => {
               />
               <Route path="/queries" element={<AllQueries />} exact={true} />
               <Route path="/auth" element={<MainAuth />} exact={true} />
+              <Route path="/forget-password" element={<ForgetPassword />} exact={true} />
               <Route path="/users/:userId" element={<Profile />} exact={true} />
               <Route
-                path="/:userId/edit"
+                path="users/edit"
                 element={<EditProfile />}
                 exact={true}
               />

@@ -60,8 +60,6 @@ const Signup = (props) => {
           errText="Invalid Entered Text"
           validators={[VALIDATOR_EMAIL()]}
           onInput={inputHandler}
-          ref={props.emailRef}
-          // print={console.log(props.emailRef)}
         />
         <Input
           className={styles.formContainer__input}
@@ -72,7 +70,6 @@ const Signup = (props) => {
           errText="Invalid Entered Text"
           validators={[VALIDATOR_REQUIRE()]}
           onInput={inputHandler}
-          ref={props.userNameRef}
         />
         <Input
           className={styles.formContainer__input}
@@ -83,7 +80,6 @@ const Signup = (props) => {
           errText="Invalid Entered Text"
           validators={[VALIDATOR_MINLENGTH(8)]}
           onInput={inputHandler}
-          ref={props.passwordRef}
         />
       </div>
       <span style={{ display: 'flex', height: '10px' }}></span>
@@ -92,7 +88,7 @@ const Signup = (props) => {
         disabled={loading && !formState.isValid}
         type="submit"
       >
-        Signup
+        {loading? 'loading...' : 'Signup'}
       </button>
       <span style={{ display: 'flex', height: '1em' }}></span>
 

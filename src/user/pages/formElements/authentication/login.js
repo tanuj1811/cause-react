@@ -10,7 +10,7 @@ import {
   VALIDATOR_MINLENGTH,
 } from '../../../../shared/util/validator'
 import { useAuth } from '../../../../shared/context/authContext'
-import { useNavigate } from 'react-router-dom'
+import { Link, useNavigate } from 'react-router-dom'
 
 const Login = () => {
   const navigate = useNavigate()
@@ -37,6 +37,7 @@ const Login = () => {
       )
       navigate(-1)
     } catch (error) {
+      setError('Invalid Credentials :(')
       console.log(error)
     }
     setLoading(false)
@@ -66,7 +67,10 @@ const Login = () => {
           onInput={inputHandler}
         />
       </div>
-
+      <span style={{ display: 'flex', height: '10px' }}></span>
+      <Link className={styles.mutedLink} to='/forget-password'>
+        Forget your password ?
+      </Link>
       <span style={{ display: 'flex', height: '1.6em' }}></span>
       <button
         className={styles.submitButton}
